@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Weather : Sunshine or Raindrops</title>
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <link rel="icon" href="images/favicon.ico">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA1P7FIgpxvanTfmvPU_RNxEEqbC2bbUY&libraries=places"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" crossorigin="anonymous">
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Nova+Oval|Macondo|Indie+Flower" rel="stylesheet">
+    <link rel="stylesheet" href="css/aboutus.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
+    <script src="js/app.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/directives/directive.js"></script>
+    <script src="js/factory.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/route.js"></script>
+    <script src="js/ng-autocomplete.js"></script>
+    <script async src='https://pepper.swat.io/embed.js?eyJwb3NpdGlvbiI6InJpZ2h0IiwiY29sb3IiOiI0QTkwRTIiLCJjdXN0b21Db2xvciI6ZmFsc2UsImljb24iOiJwYWNtYW4iLCJwcm9ub3VuIjoibWUiLCJsYW5ndWFnZSI6ImVuIiwiYnJhbmRlZCI6dHJ1ZSwiaW50cm9UZXh0IjpudWxsLCJjaGFubmVscyI6W1siZmFjZWJvb2siLCIxOTk4YWFrYXNocmFzdG9naSIsInNvY2lhbCJdLFsidHdpdHRlciIsImFha2FzaHJzdGc5OCIsInNvY2lhbCJdLFsiZ2l0aHViIiwiaHR0cHM6Ly9naXRodWIuY29tL2Fha2FzaHJzdGcwMCIsInNvY2lhbCJdLFsibGlua2VkaW4iLCJodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vYWFrYXNocnN0Zzk4Iiwic29jaWFsIl0sWyJpbnN0YWdyYW0iLCJqb2V5LmRvZXNub3Quc2hhcmUuZm9vZCIsInNvY2lhbCJdLFsic25hcGNoYXQiLCJhYWthc2hyc3RnMDAiLCJzb2NpYWwiXSxbInBob25lIiwiKzkxOTcxODY5MTIwMCIsImNsYXNzaWMiXSxbImVtYWlsIiwiMTk5OGFha2FzaHJhc3RvZ2lAZ21haWwuY29tIiwiY2xhc3NpYyJdXX0='></script>
+</head>
+
+<body ng-app="citymodule" style="background: url('images/cityblurEX.jpg');">
+    <ros-header></ros-header>
+    <div id="main ">
+        <ng-view></ng-view>
+    </div>
+    <ros-footer></ros-footer>
+</body>
+
+</html>
