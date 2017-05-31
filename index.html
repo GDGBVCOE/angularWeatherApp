@@ -7,29 +7,44 @@
     <meta name="viewport" content="width=device-width" initial-scale="1">
     <link rel="icon" href="images/favicon.ico">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA1P7FIgpxvanTfmvPU_RNxEEqbC2bbUY&libraries=places"></script>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Nova+Oval|Macondo|Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" href="css/aboutus.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.1/angular-route.min.js"></script>
     <script src="js/app.js"></script>
     <script src="js/config.js"></script>
-    <script src="js/directives/directive.js"></script>
     <script src="js/factory.js"></script>
     <script src="js/controller.js"></script>
-    <script src="js/route.js"></script>
     <script src="js/ng-autocomplete.js"></script>
-    <script async src='https://pepper.swat.io/embed.js?eyJwb3NpdGlvbiI6InJpZ2h0IiwiY29sb3IiOiI0QTkwRTIiLCJjdXN0b21Db2xvciI6ZmFsc2UsImljb24iOiJwYWNtYW4iLCJwcm9ub3VuIjoibWUiLCJsYW5ndWFnZSI6ImVuIiwiYnJhbmRlZCI6dHJ1ZSwiaW50cm9UZXh0IjpudWxsLCJjaGFubmVscyI6W1siZmFjZWJvb2siLCIxOTk4YWFrYXNocmFzdG9naSIsInNvY2lhbCJdLFsidHdpdHRlciIsImFha2FzaHJzdGc5OCIsInNvY2lhbCJdLFsiZ2l0aHViIiwiaHR0cHM6Ly9naXRodWIuY29tL2Fha2FzaHJzdGcwMCIsInNvY2lhbCJdLFsibGlua2VkaW4iLCJodHRwczovL3d3dy5saW5rZWRpbi5jb20vaW4vYWFrYXNocnN0Zzk4Iiwic29jaWFsIl0sWyJpbnN0YWdyYW0iLCJqb2V5LmRvZXNub3Quc2hhcmUuZm9vZCIsInNvY2lhbCJdLFsic25hcGNoYXQiLCJhYWthc2hyc3RnMDAiLCJzb2NpYWwiXSxbInBob25lIiwiKzkxOTcxODY5MTIwMCIsImNsYXNzaWMiXSxbImVtYWlsIiwiMTk5OGFha2FzaHJhc3RvZ2lAZ21haWwuY29tIiwiY2xhc3NpYyJdXX0='></script>
 </head>
 
-<body ng-app="citymodule" style="background: url('images/cityblurEX.jpg');">
-    <ros-header></ros-header>
-    <div id="main ">
-        <ng-view></ng-view>
-    </div>
-    <ros-footer></ros-footer>
+<body ng-app="citymodule" style="background:grey;">
+    <div class="container mt-5" ng-controller="citycontroller">
+        <div class="row py-3 searchDiv">
+            <input type="text" ng-model="cityName" id="cityName" placeholder="Search places.." class="form-control col-md-7" ng-autocomplete details="" options="{types:'(cities)'}">
+            <div class="col-md-3"></div>
+            <button ng-click="searchByCid()" id="checkcity" class="btn btn-secondary col-md-2">Check</button>
+        </div>
+        <div class="alert alert-warning text-center" ng-if="!searchWorked && searchClicked"><strong> Loading... Please wait,</strong> Retry search if results don't arrive for long </div>
+        <div class="card my-3" ng-if="searchWorked">
+            <div class="card-header text-center card-inverse card-info text-white" style="font-size:1rem; font-family:'Montserrat',sans-serif; border-color:#5bc0de;"> {{result.location.city}}, {{result.location.country}}
+                <br> <b><i>{{result.item.condition.text|uppercase}}</i></b> </div>
+            <div class="card-block text-muted">
+                <ul>
+                    <div class="card-title text-center" style="font-family: 'Nova Oval',sans-serif ;font-size:3rem;"> <img src="images/Temperature-80.png" alt="Temperature" class="img-fluid"> <b>{{result.item.condition.temp}}°{{result.units.temperature}} </b> </div>
+                    <div class="card-text text-center" style="font-family: 'Macondo',sans-serif; font-size:1.5rem"> <img src="images/Humidity-50.png" alt="Humidity" class="img-fluid"> {{result.atmosphere.humidity}} %
+                        <br> <img src="images/Fan-50.png" alt="Wind Speed" class="img-fluid"> {{result.wind.speed}} {{result.units.speed}} </div>
+                </ul>
+            </div>
+        </div> {{searchWorked}}
+        <!-- <div class="justify-content-around row" ng-if="searchWorked">
+     <div ng-repeat="r in result.item.forecast|limitTo:7" class="hourly-li">
+        <br> <b><u>{{r.day}}</u></b>
+        <br> {{r.date}}
+        <br> Max. {{r.high}}°{{result.units.temperature}}
+        <br> Min. {{r.low}}°{{result.units.temperature}}
+        <br> {{r.text}} </div>
+</div>--></div>
 </body>
 
 </html>
