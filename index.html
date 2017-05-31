@@ -6,7 +6,7 @@
     <title>Weather : Sunshine or Raindrops</title>
     <meta name="viewport" content="width=device-width" initial-scale="1">
     <link rel="icon" href="images/favicon.ico">
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA1P7FIgpxvanTfmvPU_RNxEEqbC2bbUY&libraries=places"></script>
+    <!--    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDA1P7FIgpxvanTfmvPU_RNxEEqbC2bbUY&libraries=places"></script>-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat|Nova+Oval|Macondo|Indie+Flower" rel="stylesheet">
     <link rel="stylesheet" href="css/aboutus.css">
@@ -21,7 +21,7 @@
 <body ng-app="citymodule" style="background:grey;">
     <div class="container mt-5" ng-controller="citycontroller">
         <div class="row py-3 searchDiv">
-            <input type="text" ng-model="cityName" id="cityName" placeholder="Search places.." class="form-control col-md-7" ng-autocomplete details="" options="{types:'(cities)'}">
+            <input type="text" ng-model="cityName" id="cityName" placeholder="Search places.." class="form-control col-md-7">
             <div class="col-md-3"></div>
             <button ng-click="searchByCid()" id="checkcity" class="btn btn-secondary col-md-2">Check</button>
         </div>
@@ -48,3 +48,4 @@
 </body>
 
 </html>
+<!--<input type="text" ng-model="cityName" id="cityName" placeholder="Search places.." class="form-control col-md-7" ng-autocomplete details="" options="{types:'(cities)'}">-->
