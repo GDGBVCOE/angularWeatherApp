@@ -1,1 +1,1 @@
-var app = angular.module("citymodule", ['ngAutocomplete']);
+var app = angular.module("citymodule", []);
