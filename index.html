@@ -16,20 +16,22 @@
 </head>
 
 <body ng-app="citymodule">
-    <div ng-controller="citycontroller">
+    <div ng-controller="citycontroller" style="text-align:center;">
         <div id="searchDiv">
             <input type="text" ng-model="cityName" placeholder="Search places..">
             <button ng-click="searchByCid()" id="checkcity">Check</button>
-        </div>
+        </div> ("Delhi" by default.)
+        <br>
+        <br>
         <!--Display Search Results-->Results:
         <br>
         <br>
         <br>
         <div style="font-size:1rem;"> {{result.location.city}}, {{result.location.country}}
             <br> <b><i>{{result.item.condition.text|uppercase}}</i></b>
-            <br> <b>{{result.item.condition.temp}}°{{result.units.temperature}} </b>
-            <br> {{result.atmosphere.humidity}} %
-            <br> {{result.wind.speed}} {{result.units.speed}} </div>
+            <br><b>{{result.item.condition.temp}}°{{result.units.temperature}} </b>
+            <br>Humidity: <u>{{result.atmosphere.humidity}} %</u>
+            <br>WindSpeed: <u>{{result.wind.speed}} {{result.units.speed}}</u> </div>
     </div>
 </body>
 
